@@ -53,5 +53,22 @@ int main(){
     cout << '\n';
     obiect4 = obiect2;
     cout << obiect4;
+    cout << '\n';
+    Multime test;
+    cout << obiect << '\n';
+    cout << obiect2 << '\n';
+    test = obiect + obiect2;
+    cout << test << '\n';
+    cout << test.nrElem() << '\n';
+
+    Multime test2;
+    test2 = test - obiect2;
+    test2.Afisare();
+
+    if (obiect > obiect2) {
+        cout << "da";
+    } else {
+        cout << "nu";
+    }
     return 0;
 }

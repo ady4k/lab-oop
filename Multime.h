@@ -28,10 +28,12 @@ public:
 
     friend std::istream& operator>>(std::istream &in, Multime& multime);
     friend std::ostream& operator<<(std::ostream &out, Multime& multime);
-    Multime& operator=(const Multime& alta);
+    Multime& operator=(const Multime& other);
     int& operator[](int pos);
-    Multime& operator+(const Multime& alta);
-    Multime& operator-(const Multime& alta);
+    Multime& operator+(const Multime& other);
+    Multime& operator-(const Multime& other);
+    bool operator<(const Multime& other);
+    bool operator>(const Multime& other);
 };
 
 

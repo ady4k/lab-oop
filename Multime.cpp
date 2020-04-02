@@ -38,12 +38,17 @@ void Multime::Initializare(int val) {
 
 void Multime::Extindere(){
     size += 1;
-    int* tempArr = new int[size];
-    for(int i = 0; i < size; i++)
-        tempArr[i] = arr[i];
-    delete[] arr;
-    arr = tempArr;
-    Initializare(nr_elem);
+    if (size >= 2) {
+        int *tempArr = new int[size];
+        for (int i = 0; i < size; i++)
+            tempArr[i] = arr[i];
+        delete[] arr;
+        arr = tempArr;
+        Initializare(nr_elem);
+    } else {
+        arr = new int[size];
+        Initializare(nr_elem);
+    }
 }
 
 void Multime::Micsorare(){
