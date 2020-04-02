@@ -1,7 +1,6 @@
 #ifndef LAB_OOP_MULTIME_H
 #define LAB_OOP_MULTIME_H
 
-
 class Multime {
 private:
     int size;
@@ -13,7 +12,7 @@ private:
     void Initializare(int val);
 public:
     Multime();
-    Multime(int size);
+    explicit Multime(int size);
     Multime(const Multime &other);
     ~Multime();
 
@@ -25,6 +24,14 @@ public:
     void Sortare();
     int Cautare(int val, int stanga, int dreapta);
     void Afisare();
+    void Golire();
+
+    friend std::istream& operator>>(std::istream &in, Multime& multime);
+    friend std::ostream& operator<<(std::ostream &out, Multime& multime);
+    Multime& operator=(const Multime& alta);
+    int& operator[](int pos);
+    Multime& operator+(const Multime& alta);
+    Multime& operator-(const Multime& alta);
 };
 
 

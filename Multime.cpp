@@ -1,5 +1,6 @@
 #include "Multime.h"
 #include <iostream>
+#include <stdexcept>
  using namespace std;
 
 Multime::Multime(){
@@ -59,12 +60,14 @@ void Multime::Adauga(int val) {
     if (nr_elem >= size)
         Extindere();
     arr[nr_elem++] = val;
-      Sortare();
-      Unificare();
+    if(nr_elem >= 2){
+        Sortare();
+        Unificare();
+    }
 }
 
 void Multime::Sterge(int val) {
-    int element =  Cautare(val, 0, size  );
+    int element =  Cautare(val, 0, nr_elem);
     for(int i = element; i < size-1; i++) {
         arr[i] = arr[i+1];
     }
@@ -74,14 +77,14 @@ void Multime::Sterge(int val) {
 
 int Multime::Index(int index){
     if (index < 0 || index >= size)
-        throw("index out of range");
+        throw "index out of range";
     return arr[index];
 }
 
 void Multime::Unificare(){
-    for(int i = 0; i < size-1; i++) {
+    for(int i = 0; i < nr_elem-1; i++) {
         if(arr[i] == arr[i+1]) {
-            for(int j = i; j < size-1; j++) {
+            for(int j = i; j < nr_elem-1; j++) {
                 arr[j] = arr[j+1];
             }
             Micsorare();
@@ -92,9 +95,9 @@ void Multime::Unificare(){
 
 void Multime::Sortare(){
     bool ok;
-    for(int i = 0; i < size; i++) {
+    for(int i = 0; i < nr_elem; i++) {
         ok = false;
-        for (int j = i + 1; j < size - 1; j++)
+        for (int j = 0; j < nr_elem - 1; j++)
             if (arr[j] > arr[j + 1]) {
                 int aux = arr[j];
                 arr[j] = arr[j + 1];
@@ -117,14 +120,25 @@ int Multime::Cautare(int val, int stanga, int dreapta){
             return Cautare(val, stanga, mijloc - 1);
         return Cautare(val, mijloc + 1, dreapta);
     }
-    throw("element not in index");
+    throw "element not in index";
 }
 
 void Multime::Afisare(){
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < nr_elem; i++)
         cout << "elementul " << i << ':' << ' ' << arr[i] << '\n' ;
+}
 
+void Multime::Golire(){
+   if (nr_elem == 0) {
+       return;
+   }
+   for(int i = 0; i < size; i++){
+       arr[i] = 0;
+   }
+   nr_elem = 0;
 }
 
 int Multime::nrElem(){return nr_elem;}
+
+
 

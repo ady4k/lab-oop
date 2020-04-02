@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Multime.cpp"
+#include "Supraincarcare.cpp"
 using namespace std;
 
 int main(){
@@ -25,6 +25,8 @@ int main(){
     cout << '\n';
     obiect.Adauga(5);
     obiect.Adauga(62);
+    obiect.Adauga(13);
+    obiect.Adauga(25);
     obiect.Afisare();
     cout << '\n';
     obiect2.Adauga(2);
@@ -34,5 +36,22 @@ int main(){
     obiect2.Adauga(11);
     obiect2.Afisare();
     cout << obiect2.nrElem() << '\n';
+
+    Multime obiect4(3);
+    obiect4.Adauga(5);
+    obiect4.Adauga(4);
+    obiect4.Adauga(2);
+    obiect4.Adauga(67);
+    obiect4.Adauga(51);
+    obiect4.Afisare();
+
+    cout << obiect4;
+    cout << '\n';
+    //cin >> obiect4;
+    //cout << obiect4;
+    cout << obiect3[2];
+    cout << '\n';
+    obiect4 = obiect2;
+    cout << obiect4;
     return 0;
 }
